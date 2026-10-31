@@ -3,9 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
 <title>Kế Hoạch Xây Lắp &amp; Vật Tư Dự Án</title>
 <meta name="description" content="Đăng ký vật tư và kế hoạch xây lắp hàng tháng. Phòng Kỹ thuật HO - VTTD.">
-<link rel="icon" href="logo-vttd.png">
+<link rel="icon" href="LOGO%20NEW.png">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="VTTD - Phòng Kỹ thuật HO">
@@ -24,46 +25,229 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap">
 <style>
-:root{--bg:#eef2fb;--bg2:#dfe8ff;--ink:#0d1630;--mute:#58627c;--panel:#fff;--line:rgba(37,76,180,.18);--brand:#122e9c;--blue:#2457f5;--green:#0a9f6a;
---sans:"Be Vietnam Pro","Segoe UI",system-ui,sans-serif}
+:root{
+  --bg:#eef2fb;--bg2:#dfe8ff;--glass:rgba(255,255,255,.66);--glass-b:rgba(255,255,255,.9);--line:rgba(37,76,180,.14);
+  --ink:#0d1630;--mute:#58627c;--panel:#ffffff;
+  --blue:#2457f5;--blue-s:rgba(36,87,245,.10);--blue-g:rgba(36,87,245,.35);
+  --green:#0a9f6a;--green-s:rgba(10,159,106,.13);--red-s:rgba(224,49,63,.12);
+  --btn1:#122e9c;--btn2:#2457f5;--logo-bg:transparent;
+  --shadow:0 10px 34px -14px rgba(28,60,150,.35);
+  --sans:"Be Vietnam Pro","Segoe UI",system-ui,sans-serif;
+  --mono:ui-monospace,"JetBrains Mono",Consolas,monospace;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#060b1a;--bg2:#0c1636;--glass:rgba(20,30,62,.55);--glass-b:rgba(120,160,255,.22);--line:rgba(130,165,255,.16);
+  --ink:#eaf0ff;--mute:#93a0c4;--panel:#0f1938;
+  --blue:#6b94ff;--blue-s:rgba(107,148,255,.15);--blue-g:rgba(107,148,255,.45);
+  --green:#3ddba6;--green-s:rgba(61,219,166,.14);--red-s:rgba(255,106,118,.15);
+  --btn1:#2a4fd0;--btn2:#3f6bf0;--logo-bg:#fff;
+  --shadow:0 12px 40px -16px rgba(0,0,0,.7);
+}}
 *{box-sizing:border-box}
+html{background:var(--bg)}
 html,body{margin:0;min-height:100%}
-body{font-family:var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased;
- background:radial-gradient(640px 320px at 92% -6%,rgba(36,87,245,.22),transparent 65%),radial-gradient(520px 300px at -6% 24%,rgba(10,159,106,.12),transparent 65%),linear-gradient(180deg,var(--bg2),var(--bg) 45%);
- display:flex;align-items:center;justify-content:center;padding:24px 16px}
-.card{width:100%;max-width:560px;background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:34px 30px 26px;text-align:center;position:relative;box-shadow:0 18px 44px -22px rgba(28,60,150,.45)}
-.card::before{content:"";position:absolute;left:28px;right:28px;top:0;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--brand),var(--blue),transparent)}
-.logo{height:64px;width:auto;display:block;margin:0 auto 12px}
-.org{font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);line-height:1.5}
-.dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--green);margin-right:6px;vertical-align:middle}
-h1{margin:20px 0 8px;font-size:1.75rem;font-weight:800;letter-spacing:-.02em;line-height:1.2;background:linear-gradient(90deg,var(--ink),var(--brand));-webkit-background-clip:text;background-clip:text;color:transparent}
-.lead{margin:0 0 24px;color:var(--mute);font-size:.98rem;line-height:1.55}
-.btn{display:block;width:100%;padding:14px 18px;border-radius:14px;background:var(--brand);color:#fff;font:700 1rem var(--sans);text-decoration:none;box-shadow:0 10px 24px -10px rgba(18,46,156,.7);transition:transform .12s ease,background .12s ease}
-.btn:hover{background:var(--blue);transform:translateY(-1px)}
-.btn.ghost{margin-top:10px;background:rgba(36,87,245,.08);color:var(--brand);box-shadow:none;font-weight:600}
-.btn.ghost:hover{background:rgba(36,87,245,.16)}
-.steps{margin:20px 0 0;padding:0;list-style:none;text-align:left;font-size:.86rem;color:var(--mute);line-height:1.55}
-.steps li{padding:5px 0 5px 22px;position:relative}
-.steps li::before{content:"";position:absolute;left:4px;top:12px;width:7px;height:7px;border-radius:50%;background:var(--blue)}
-.foot{margin-top:20px;padding-top:12px;border-top:1px solid var(--line);font-size:.74rem;color:var(--mute)}
-@media (max-width:420px){.card{padding:28px 18px 22px}h1{font-size:1.45rem}}
+body{min-height:100vh;color:var(--ink);font:15px/1.6 var(--sans);-webkit-font-smoothing:antialiased;
+  display:flex;align-items:center;justify-content:center;padding:24px 16px;position:relative;
+  background:radial-gradient(900px 500px at 90% -5%,var(--blue-g),transparent 65%),
+             radial-gradient(700px 480px at -5% 30%,var(--green-s),transparent 65%),
+             radial-gradient(600px 400px at 80% 95%,var(--red-s),transparent 65%),
+             linear-gradient(180deg,var(--bg2),var(--bg) 40%);background-attachment:fixed}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.5;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:44px 44px;
+  -webkit-mask-image:radial-gradient(ellipse at 50% 0,#000,transparent 70%);mask-image:radial-gradient(ellipse at 50% 0,#000,transparent 70%)}
+#net{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+
+/* Thẻ kính mờ */
+.card{position:relative;z-index:1;width:100%;max-width:600px;padding:30px 32px 18px;text-align:center;overflow:hidden;
+  background:var(--glass);border:1px solid var(--glass-b);border-radius:20px;box-shadow:var(--shadow);
+  -webkit-backdrop-filter:blur(16px) saturate(140%);backdrop-filter:blur(16px) saturate(140%)}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.card{background:var(--panel)}}
+.card::before{content:"";position:absolute;left:28px;right:28px;top:0;height:2px;border-radius:2px;background:linear-gradient(90deg,var(--blue),transparent)}
+.card::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .25s;
+  background:radial-gradient(340px circle at var(--mx,50%) var(--my,0%),var(--blue-s),transparent 62%)}
+.card:hover::after{opacity:1}
+.hud{position:absolute;inset:10px;border-radius:12px;pointer-events:none;opacity:.5;
+  background:
+   linear-gradient(var(--blue),var(--blue)) top left/14px 1.5px no-repeat,linear-gradient(var(--blue),var(--blue)) top left/1.5px 14px no-repeat,
+   linear-gradient(var(--blue),var(--blue)) top right/14px 1.5px no-repeat,linear-gradient(var(--blue),var(--blue)) top right/1.5px 14px no-repeat,
+   linear-gradient(var(--blue),var(--blue)) bottom left/14px 1.5px no-repeat,linear-gradient(var(--blue),var(--blue)) bottom left/1.5px 14px no-repeat,
+   linear-gradient(var(--blue),var(--blue)) bottom right/14px 1.5px no-repeat,linear-gradient(var(--blue),var(--blue)) bottom right/1.5px 14px no-repeat}
+.scan{position:absolute;left:0;right:0;top:-90px;height:90px;pointer-events:none;opacity:0;
+  background:linear-gradient(180deg,transparent,var(--blue-s) 70%,var(--blue-g));animation:scan 1.5s .2s ease-in both}
+@keyframes scan{0%{top:-90px;opacity:0}15%{opacity:1}85%{opacity:1}100%{top:100%;opacity:0}}
+
+.rv{animation:rise .6s var(--ease) both;animation-delay:var(--d,0s)}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* Đầu thẻ */
+.logo{display:inline-block;width:72px;height:72px;object-fit:contain;border-radius:16px;box-shadow:0 10px 26px -12px var(--blue-g)}
+.org{margin-top:12px;font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);line-height:1.5}
+.chip{display:inline-flex;align-items:center;gap:8px;margin-top:10px;padding:5px 12px;border-radius:999px;background:var(--blue-s);
+  color:var(--blue);font:700 .68rem var(--sans);letter-spacing:.14em;text-transform:uppercase}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 var(--green);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(10,159,106,.5)}70%,100%{box-shadow:0 0 0 7px rgba(10,159,106,0)}}
+h1{margin:16px 0 6px;font-size:clamp(1.6rem,4.6vw,2.1rem);font-weight:800;letter-spacing:-.03em;line-height:1.2;text-wrap:balance;
+  background:linear-gradient(90deg,var(--ink),var(--blue));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{margin:0 0 18px;color:var(--mute);font-size:.95rem;line-height:1.6;text-wrap:balance}
+.caret{display:inline-block;width:2px;height:1em;margin:0 -2px 0 0;vertical-align:-.15em;background:var(--blue);animation:blink .9s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+
+/* Dòng quy trình */
+.flow{display:grid;grid-template-columns:repeat(4,1fr);margin:0 0 20px;padding:0;list-style:none;counter-reset:s}
+.flow li{position:relative;padding:0 4px;font-size:.74rem;line-height:1.35;color:var(--mute);font-weight:500}
+.flow .nd{position:relative;z-index:1;display:grid;place-items:center;width:30px;height:30px;margin:0 auto 8px;border-radius:50%;
+  background:var(--panel);border:1px solid var(--blue-g);color:var(--blue);font:600 .7rem var(--mono);box-shadow:0 0 0 4px var(--blue-s)}
+.flow li:not(:last-child)::after{content:"";position:absolute;top:15px;left:calc(50% + 20px);right:calc(-50% + 20px);height:1px;
+  background:linear-gradient(90deg,var(--blue-g),var(--line));transform-origin:left;animation:draw .5s var(--ease) both;animation-delay:calc(.7s + var(--i)*.22s)}
+@keyframes draw{from{transform:scaleX(0)}to{transform:none}}
+
+/* Nút */
+.btn{position:relative;display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:48px;padding:13px 18px;overflow:hidden;
+  border-radius:14px;color:#fff;text-decoration:none;font:700 1rem var(--sans);
+  background:linear-gradient(135deg,var(--btn1),var(--btn2));box-shadow:0 10px 24px -10px var(--blue-g);
+  transition:transform .2s var(--ease),box-shadow .2s var(--ease)}
+.btn::after{content:"";position:absolute;inset:0;pointer-events:none;transform:translateX(-120%);
+  background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.32) 50%,transparent 65%)}
+.btn:hover{transform:translateY(-1px);box-shadow:0 0 0 1px var(--blue-g),0 14px 30px -10px var(--blue-g)}
+.btn:hover::after{transform:translateX(120%);transition:transform .7s var(--ease)}
+.btn:active{transform:translateY(0)}
+.btn svg{width:18px;height:18px;flex:none;transition:transform .2s var(--ease)}
+.btn:hover svg{transform:translateX(3px)}
+.btn.ghost{margin-top:10px;color:var(--ink);font-weight:600;background:var(--glass);border:1px solid var(--line);box-shadow:none}
+.btn.ghost::after{display:none}
+.btn.ghost:hover{border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-s)}
+.btn.ghost svg{color:var(--blue)}
+.btn.ghost:hover svg{transform:translateY(2px)}
+a:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+
+/* Hướng dẫn */
+.steps{margin:18px 0 0;padding:0;list-style:none;text-align:left;font-size:.86rem;color:var(--mute);line-height:1.5}
+.steps li{display:flex;gap:12px;align-items:flex-start;padding:7px 0;border-top:1px dashed var(--line)}
+.steps .n{flex:none;padding-top:2px;color:var(--blue);font:600 .78rem var(--mono)}
+.steps b{color:var(--ink);font-weight:600}
+.foot{margin-top:14px;padding-top:12px;border-top:1px solid var(--line);font-size:.74rem;color:var(--mute)}
+
+@media (max-width:480px){
+  .card{padding:30px 18px 20px}
+  .flow{grid-template-columns:repeat(2,1fr);row-gap:14px}
+  .flow li::after{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
 </style>
 </head>
 <body>
-<main class="card">
-  <img class="logo" src="logo-vttd.png" alt="VTTD">
-  <div class="org">Công ty cổ phần phát triển<br>viễn thông và truyền hình Việt Nam</div>
-  <div class="org" style="margin-top:6px"><span class="dot"></span>Phòng Kỹ thuật HO</div>
-  <h1>Kế Hoạch Xây Lắp &amp; Vật Tư Dự Án</h1>
-  <p class="lead">Chi nhánh đăng ký dự án và khối lượng vật tư hàng tháng. Phòng Kỹ thuật HO rà soát, tổng hợp và trình ký.</p>
-  <a class="btn" href="https://script.google.com/macros/s/AKfycbx1LEUZzxv0OiEFjv_aFAo1gKKDzf7LGSCRuhLT3tcySLYHMc_zPBqHv9_oXzIxXq2Apw/exec">Vào hệ thống</a>
-  <a class="btn ghost" href="HD_Chi_nhanh.pdf">Hướng dẫn đăng ký (PDF, 1 trang)</a>
-  <ul class="steps">
-    <li>Mở bằng <b>Chrome trên máy tính</b>, đăng nhập Gmail và bấm <b>Cho phép</b>.</li>
-    <li>Lần đầu: chọn chi nhánh của bạn, gửi yêu cầu và chờ P.KT HO duyệt (có email báo).</li>
-    <li>Báo “Drive không thể mở tệp”: mở lại bằng cửa sổ ẩn danh (Ctrl+Shift+N).</li>
+<canvas id="net" aria-hidden="true"></canvas>
+<main class="card" id="card">
+  <div class="scan" aria-hidden="true"></div>
+  <div class="hud" aria-hidden="true"></div>
+
+  <img class="logo rv" src="LOGO%20NEW.png" width="72" height="72" alt="VTTD">
+  <div class="org rv" style="--d:.05s">Công ty cổ phần phát triển<br>viễn thông và truyền hình Việt Nam</div>
+  <div class="rv" style="--d:.1s"><span class="chip"><span class="dot"></span>Phòng Kỹ thuật HO</span></div>
+  <h1 class="rv" style="--d:.15s">Kế Hoạch Xây Lắp &amp; Vật Tư Dự Án</h1>
+  <p class="lead rv" id="lead" style="--d:.2s">Chi nhánh đăng ký dự án và khối lượng vật tư hàng tháng. Phòng Kỹ thuật HO rà soát, tổng hợp và trình ký.</p>
+
+  <ol class="flow rv" style="--d:.25s" aria-label="Quy trình">
+    <li style="--i:0"><span class="nd">01</span>Chi nhánh đăng ký</li>
+    <li style="--i:1"><span class="nd">02</span>P.KT HO rà soát</li>
+    <li style="--i:2"><span class="nd">03</span>Tổng hợp</li>
+    <li style="--i:3"><span class="nd">04</span>Trình ký</li>
+  </ol>
+
+  <a class="btn rv" style="--d:.3s" href="https://script.google.com/macros/s/AKfycbx1LEUZzxv0OiEFjv_aFAo1gKKDzf7LGSCRuhLT3tcySLYHMc_zPBqHv9_oXzIxXq2Apw/exec">Vào hệ thống
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  <a class="btn ghost rv" style="--d:.35s" href="HD_Chi_nhanh.pdf">Hướng dẫn đăng ký (PDF, 1 trang)
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg></a>
+
+  <ul class="steps rv" style="--d:.4s">
+    <li><span class="n">01</span><span>Mở bằng <b>Chrome trên máy tính</b>, đăng nhập Gmail và bấm <b>Cho phép</b>.</span></li>
+    <li><span class="n">02</span><span>Lần đầu: chọn chi nhánh của bạn, gửi yêu cầu và chờ P.KT HO duyệt (có email báo).</span></li>
+    <li><span class="n">03</span><span>Báo “Drive không thể mở tệp”: mở lại bằng cửa sổ ẩn danh (Ctrl+Shift+N).</span></li>
   </ul>
-  <div class="foot">Chỉ dùng trên máy tính · Hỗ trợ: P.KT HO</div>
+  <div class="foot rv" style="--d:.45s">Chỉ dùng trên máy tính · Hỗ trợ: P.KT HO</div>
 </main>
+
+<script>
+(function(){
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Đèn rọi theo con trỏ trên thẻ */
+  var card = document.getElementById('card');
+  card.addEventListener('pointermove', function(e){
+    var r = card.getBoundingClientRect();
+    card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+    card.style.setProperty('--my', (e.clientY - r.top) + 'px');
+  });
+
+  /* Gõ chữ một lần cho dòng mô tả. Phần chưa gõ vẫn nằm trong bố cục nhưng ẩn,
+     nên ngắt dòng và chiều cao không đổi khi gõ hay khi đổi cỡ cửa sổ */
+  var lead = document.getElementById('lead');
+  if (!reduce && lead) {
+    var full = lead.textContent, i = 0;
+    var typed = document.createTextNode(''), rest = document.createElement('span'), caret = document.createElement('span');
+    rest.style.visibility = 'hidden'; rest.textContent = full;
+    caret.className = 'caret';
+    lead.textContent = '';
+    lead.appendChild(typed); lead.appendChild(caret); lead.appendChild(rest);
+    setTimeout(function tick(){
+      i++;
+      typed.nodeValue = full.slice(0, i);
+      rest.textContent = full.slice(i);
+      if (i < full.length) setTimeout(tick, 16);
+      else setTimeout(function(){ caret.remove(); }, 1600);
+    }, 500);
+  }
+
+  /* Mạng nút kết nối nền (neural network), nhẹ, tạm dừng khi tab ẩn */
+  var cv = document.getElementById('net'), cx = cv.getContext('2d');
+  var W, H, dpr, nodes = [], mouse = {x:-999, y:-999}, rgb = '36,87,245', raf = 0;
+  function readColor(){
+    var c = getComputedStyle(document.documentElement).getPropertyValue('--blue').trim().replace('#','');
+    if (c.length === 6) rgb = parseInt(c.slice(0,2),16)+','+parseInt(c.slice(2,4),16)+','+parseInt(c.slice(4,6),16);
+  }
+  function resize(){
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = innerWidth; H = innerHeight;
+    cv.width = W * dpr; cv.height = H * dpr;
+    cx.setTransform(dpr,0,0,dpr,0,0);
+    var n = Math.round(Math.min(70, W * H / 20000));
+    nodes = [];
+    for (var k = 0; k < n; k++) nodes.push({x:Math.random()*W, y:Math.random()*H, vx:(Math.random()-.5)*.36, vy:(Math.random()-.5)*.36, r:1.1+Math.random()*1});
+    if (reduce) draw(false);
+  }
+  function draw(move){
+    cx.clearRect(0,0,W,H);
+    var i, j, a, b, d, dx, dy;
+    for (i = 0; i < nodes.length; i++) {
+      a = nodes[i];
+      if (move) {
+        a.x += a.vx; a.y += a.vy;
+        if (a.x < 0 || a.x > W) a.vx *= -1;
+        if (a.y < 0 || a.y > H) a.vy *= -1;
+      }
+      for (j = i + 1; j < nodes.length; j++) {
+        b = nodes[j]; dx = a.x - b.x; dy = a.y - b.y; d = Math.sqrt(dx*dx + dy*dy);
+        if (d < 130) { cx.strokeStyle = 'rgba('+rgb+','+((1 - d/130)*.26)+')'; cx.lineWidth = 1; cx.beginPath(); cx.moveTo(a.x,a.y); cx.lineTo(b.x,b.y); cx.stroke(); }
+      }
+      dx = a.x - mouse.x; dy = a.y - mouse.y; d = Math.sqrt(dx*dx + dy*dy);
+      if (d < 170) { cx.strokeStyle = 'rgba('+rgb+','+((1 - d/170)*.5)+')'; cx.lineWidth = 1; cx.beginPath(); cx.moveTo(a.x,a.y); cx.lineTo(mouse.x,mouse.y); cx.stroke(); }
+      cx.fillStyle = 'rgba('+rgb+',.55)'; cx.beginPath(); cx.arc(a.x,a.y,a.r,0,6.2832); cx.fill();
+    }
+  }
+  function loop(){ draw(true); raf = requestAnimationFrame(loop); }
+  function start(){ if (!reduce && !raf) raf = requestAnimationFrame(loop); }
+  function stop(){ if (raf) { cancelAnimationFrame(raf); raf = 0; } }
+  addEventListener('pointermove', function(e){ mouse.x = e.clientX; mouse.y = e.clientY; });
+  addEventListener('pointerleave', function(){ mouse.x = mouse.y = -999; });
+  addEventListener('resize', resize);
+  document.addEventListener('visibilitychange', function(){ document.hidden ? stop() : start(); });
+  var mq = matchMedia('(prefers-color-scheme: dark)');
+  (mq.addEventListener ? mq.addEventListener('change', function(){ readColor(); if (reduce) draw(false); }) : 0);
+  readColor(); resize(); start();
+})();
+</script>
 </body>
 </html>
