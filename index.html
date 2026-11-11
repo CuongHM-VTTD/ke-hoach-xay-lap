@@ -81,13 +81,15 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.5;
 @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 
 /* Đầu thẻ */
-.logo{display:inline-block;width:96px;height:96px;object-fit:contain;border-radius:0;box-shadow:0 0 0 4px var(--blue-s),0 12px 28px -12px var(--blue-g)}
-.org{margin-top:12px;font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);line-height:1.5}
+.brand{display:flex;align-items:center;justify-content:center;gap:18px;text-align:left;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.brand .txt{min-width:0}
+.logo{flex:none;display:block;width:84px;height:84px;object-fit:contain;border-radius:0;box-shadow:0 0 0 4px var(--blue-s),0 12px 28px -12px var(--blue-g)}
+.org{margin:0;font-size:.74rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);line-height:1.5}
 .chip{display:inline-flex;align-items:center;gap:8px;margin-top:10px;padding:5px 12px;border-radius:999px;background:var(--blue-s);
   color:var(--blue);font:700 .68rem var(--sans);letter-spacing:.14em;text-transform:uppercase}
 .dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 var(--green);animation:pulse 2s infinite}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(10,159,106,.5)}70%,100%{box-shadow:0 0 0 7px rgba(10,159,106,0)}}
-h1{margin:16px 0 6px;font-size:clamp(1.6rem,4.6vw,2.1rem);font-weight:800;letter-spacing:-.03em;line-height:1.2;text-wrap:balance;
+h1{margin:20px 0 6px;font-size:clamp(1.6rem,4.6vw,2.1rem);font-weight:800;letter-spacing:-.03em;line-height:1.2;text-wrap:balance;
   background:linear-gradient(90deg,var(--ink),var(--blue));-webkit-background-clip:text;background-clip:text;color:transparent}
 .lead{margin:0 0 18px;color:var(--mute);font-size:.95rem;line-height:1.6;text-wrap:balance}
 .caret{display:inline-block;width:2px;height:1em;margin:0 -2px 0 0;vertical-align:-.15em;background:var(--blue);animation:blink .9s steps(1) infinite}
@@ -130,7 +132,10 @@ a:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
 .copy{margin-top:6px;font:500 .72rem var(--mono);letter-spacing:.02em}
 
 @media (max-width:480px){
-  .card{padding:30px 18px 20px}
+  .card{padding:26px 16px 20px}
+  .brand{gap:12px;padding-bottom:14px}
+  .logo{width:60px;height:60px}
+  .org{font-size:.56rem;letter-spacing:.05em}
   .flow{grid-template-columns:repeat(2,1fr);row-gap:14px}
   .flow li::after{display:none}
 }
@@ -145,9 +150,13 @@ a:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
   <div class="scan" aria-hidden="true"></div>
   <div class="hud" aria-hidden="true"></div>
 
-  <img class="logo rv" src="logo-vttd.png?v=4" width="96" height="96" alt="VTTD Telecom">
-  <div class="org rv" style="--d:.05s">Công ty cổ phần phát triển<br>viễn thông và truyền hình Việt Nam</div>
-  <div class="rv" style="--d:.1s"><span class="chip"><span class="dot"></span>Phòng Kỹ thuật HO</span></div>
+  <div class="brand rv">
+    <img class="logo" src="logo-vttd.png?v=4" width="84" height="84" alt="VTTD">
+    <div class="txt">
+      <div class="org">Công ty cổ phần phát triển<br>viễn thông và truyền hình Việt Nam</div>
+      <span class="chip"><span class="dot"></span>Phòng Kỹ thuật HO</span>
+    </div>
+  </div>
   <h1 class="rv" style="--d:.15s">Kế Hoạch Xây Lắp &amp; Vật Tư Dự Án</h1>
   <p class="lead rv" id="lead" style="--d:.2s">Chi nhánh đăng ký dự án và khối lượng vật tư hàng tháng. Phòng Kỹ thuật HO rà soát, tổng hợp và trình ký.</p>
 
